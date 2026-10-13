@@ -1,5 +1,5 @@
 generated: '2026-10-14'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/bright-mls/integrations
 - https://n8n.io/integrations/bright-mls/
@@ -9,8 +9,31 @@ checked:
 - https://composio.dev/toolkits/bright-mls
 - https://monid.ai/tools/bright-mls
 - https://n8n.io/integrations/bright-mls/
+- https://services.reso.org/orgs?showStats=true&showEndorsements=true
 - https://zapier.com/apps/bright-mls/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: RESO
+  partner: reso
+  type: contract
+  channel: network-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://services.reso.org/orgs?showStats=true&showEndorsements=true
+  contract_reference:
+    register: RESO organizations and endorsements (Real Estate Standards Organization)
+    spec_file: null
+    role: MLS
+    tier: Certified Current
+    registered_name: Bright MLS
+    organization_uoi: M00000309
+    matched_domain: brightmls.com
+    matched_by: domain
+    endorsements:
+    - Data Dictionary 1.7 Certified
+    - Web API Core 2.0.0 Certified
+    summary_url: https://certification.reso.org/summary/M00000309
+    detected_by: sweep-real-estate.py
+    detected: '2026-10-14'
 templates: []
