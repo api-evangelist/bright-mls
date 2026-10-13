@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/bright-mls/main/json-schema/bright-mls-ingestion-api-body-schema.json",
+  "title": "IngestionApiBody",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/bright-mls-data-hub-ingestion-service-openapi.json#/components/schemas/IngestionApiBody",
+  "required": [
+    "Type",
+    "MessageId",
+    "Item"
+  ],
+  "type": "object",
+  "properties": {
+    "Type": {
+      "type": "string",
+      "description": "The possible values of type could be listing, member, office etc"
+    },
+    "messageId": {
+      "type": "string",
+      "description": "The unique identifier value"
+    },
+    "item": {
+      "type": "object",
+      "description": "The item will contain the JSON representation of the document, its properties will differ based on the document type choosed."
+    }
+  }
+}

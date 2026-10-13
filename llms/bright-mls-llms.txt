@@ -1,0 +1,6 @@
+# BrightMLS (Development)
+
+> BrightMLS development environment - not for public use.
+
+## About
+BrightMLS provides a Multiple Listing Service (MLS) experience for real estate professionals.

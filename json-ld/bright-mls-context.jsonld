@@ -1,0 +1,176 @@
+{
+  "@context": {
+    "@vocab": "https://brightmls.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "bright": "https://brightmls.com/schema#",
+    "IngestionApiBody": "bright:IngestionApiBody",
+    "Type": {
+      "@id": "bright:Type",
+      "@type": "xsd:string"
+    },
+    "messageId": {
+      "@id": "bright:messageId",
+      "@type": "xsd:string"
+    },
+    "item": {
+      "@id": "bright:item"
+    },
+    "GetPackageResponse": "bright:GetPackageResponse",
+    "apiInfo": {
+      "@id": "bright:apiInfo",
+      "@type": "@id"
+    },
+    "description": {
+      "@id": "bright:description",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "bright:message",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "bright:url",
+      "@type": "xsd:string"
+    },
+    "Error": "bright:Error",
+    "Forbidden": "bright:Forbidden",
+    "ApiInfo": "bright:ApiInfo",
+    "version": {
+      "@id": "bright:version",
+      "@type": "xsd:string"
+    },
+    "timestamp": {
+      "@id": "bright:timestamp",
+      "@type": "xsd:decimal"
+    },
+    "provider": {
+      "@id": "bright:provider",
+      "@type": "xsd:string"
+    },
+    "userApiBody": "bright:userApiBody",
+    "email": {
+      "@id": "bright:email",
+      "@type": "xsd:string"
+    },
+    "onBoardingDate": {
+      "@id": "bright:onBoardingDate",
+      "@type": "xsd:string"
+    },
+    "industry": {
+      "@id": "bright:industry",
+      "@container": "@list"
+    },
+    "organizationName": {
+      "@id": "bright:organizationName",
+      "@type": "xsd:string"
+    },
+    "userApiError": "bright:userApiError",
+    "subError": {
+      "@id": "bright:subError",
+      "@container": "@list"
+    },
+    "userApiForbidden": "bright:userApiForbidden",
+    "userApiResponse": "bright:userApiResponse",
+    "authTokenBody": "bright:authTokenBody",
+    "clientId": {
+      "@id": "bright:clientId",
+      "@type": "xsd:string"
+    },
+    "clientSecret": {
+      "@id": "bright:clientSecret",
+      "@type": "xsd:string"
+    },
+    "authTokenError": "bright:authTokenError",
+    "authTokenResponse": "bright:authTokenResponse",
+    "Manifest": "bright:Manifest",
+    "propertyAddress": {
+      "@id": "bright:propertyAddress",
+      "@type": "xsd:string"
+    },
+    "mlsId": {
+      "@id": "bright:mlsId",
+      "@type": "xsd:string"
+    },
+    "vendorId": {
+      "@id": "bright:vendorId",
+      "@type": "xsd:decimal"
+    },
+    "vendorName": {
+      "@id": "bright:vendorName",
+      "@type": "xsd:string"
+    },
+    "dateFileCreated": {
+      "@id": "bright:dateFileCreated",
+      "@type": "xsd:dateTime"
+    },
+    "listItems": {
+      "@id": "bright:listItems",
+      "@container": "@list"
+    },
+    "ManifestItem": "bright:ManifestItem",
+    "fileName": {
+      "@id": "bright:fileName",
+      "@type": "xsd:string"
+    },
+    "imageUrls": {
+      "@id": "bright:imageUrls",
+      "@type": "@id"
+    },
+    "id": {
+      "@id": "bright:id",
+      "@type": "xsd:decimal"
+    },
+    "lastModified": {
+      "@id": "bright:lastModified",
+      "@type": "xsd:dateTime"
+    },
+    "mediaType": {
+      "@id": "bright:mediaType",
+      "@type": "xsd:string"
+    },
+    "roomType": {
+      "@id": "bright:roomType",
+      "@type": "xsd:string"
+    },
+    "tourUrl": {
+      "@id": "bright:tourUrl",
+      "@type": "xsd:string"
+    },
+    "docUrl": {
+      "@id": "bright:docUrl",
+      "@type": "xsd:string"
+    },
+    "docVisibility": {
+      "@id": "bright:docVisibility",
+      "@type": "xsd:string"
+    },
+    "ImageUrls": "bright:ImageUrls",
+    "fullSize": {
+      "@id": "bright:fullSize",
+      "@type": "xsd:string"
+    },
+    "UuidResponse": "bright:UuidResponse",
+    "uuid": {
+      "@id": "bright:uuid",
+      "@type": "xsd:string"
+    },
+    "BadRequest": "bright:BadRequest",
+    "errors": {
+      "@id": "bright:errors",
+      "@container": "@list"
+    },
+    "Unauthorized": "bright:Unauthorized",
+    "InternalServerError": "bright:InternalServerError"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Bright MLS API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Bright MLS's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-14) from openapi/bright-mls-data-hub-ingestion-service-openapi.json, openapi/bright-mls-datalake-distribution-service-openapi.json, openapi/bright-mls-manifest-services-openapi.json.",
+  "dcterms:created": "2026-10-14",
+  "dcterms:source": [
+    "openapi/bright-mls-data-hub-ingestion-service-openapi.json",
+    "openapi/bright-mls-datalake-distribution-service-openapi.json",
+    "openapi/bright-mls-manifest-services-openapi.json"
+  ]
+}

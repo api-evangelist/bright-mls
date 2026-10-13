@@ -1,0 +1,50 @@
+generated: '2026-10-14'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/bright-mls-data-hub-ingestion-service-openapi.yml
+- openapi/bright-mls-datalake-distribution-service-openapi.json
+- openapi/bright-mls-manifest-services-openapi.json
+format: custom
+envelope:
+  media_type: application/json
+  schema: Error
+coverage:
+  operations: 7
+  statuses_declared: 5
+problems:
+- status: 400
+  title: Bad Request
+  description: 400 response
+  operations: 6
+  media_types:
+  - application/json
+  schema: Error
+- status: 401
+  title: Unauthorized
+  description: Unauthorized
+  operations: 3
+  media_types:
+  - application/json
+  schema: Unauthorized
+- status: 403
+  title: Forbidden
+  description: 403 response
+  operations: 2
+  media_types:
+  - application/json
+  schema: Forbidden
+- status: 404
+  title: Not Found
+  description: 404 response
+  operations: 2
+  media_types:
+  - application/json
+  schema: Error
+- status: 500
+  title: Internal Server Error
+  description: 500 response
+  operations: 6
+  media_types:
+  - application/json
+  schema: Error

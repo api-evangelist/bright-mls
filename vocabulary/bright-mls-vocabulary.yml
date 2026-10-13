@@ -1,0 +1,133 @@
+generated: '2026-10-14'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/bright-mls-data-hub-ingestion-service-openapi.yml
+- openapi/bright-mls-datalake-distribution-service-openapi.json
+- openapi/bright-mls-manifest-services-openapi.json
+vocabulary:
+  name: Bright MLS Domain Vocabulary
+  description: 'Terms declared by Bright MLS''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-14'
+  terms:
+  - term: Manifests
+    definition: Operations available to Manifests
+    tags:
+    - Resource Group
+    source: openapi/bright-mls-manifest-services-openapi.json
+  - term: IngestionApiBody
+    definition: 'Object declared by the contract with fields: Type, messageId, item.'
+    tags:
+    - Object
+    source: openapi/bright-mls-data-hub-ingestion-service-openapi.yml#/components/schemas/IngestionApiBody
+  - term: GetPackageResponse
+    definition: 'Object declared by the contract with fields: apiInfo, description, message, url.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/GetPackageResponse
+  - term: Error Response
+    definition: 'Object declared by the contract with fields: apiInfo, message.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/Error
+  - term: Forbidden
+    definition: 'Object declared by the contract with fields: message.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/Forbidden
+  - term: ApiInfo
+    definition: 'Object declared by the contract with fields: version, timestamp, provider.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/ApiInfo
+  - term: userApiBody
+    definition: 'Object declared by the contract with fields: email, onBoardingDate, industry, organizationName.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/userApiBody
+  - term: userApiError
+    definition: 'Object declared by the contract with fields: apiInfo, description, message, subError.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/userApiError
+  - term: userApiForbidden
+    definition: 'Object declared by the contract with fields: apiInfo, description, message.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/userApiForbidden
+  - term: userApiResponse
+    definition: 'Object declared by the contract with fields: apiInfo, description, message, item.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/userApiResponse
+  - term: authTokenBody
+    definition: 'Object declared by the contract with fields: clientId, clientSecret.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/authTokenBody
+  - term: authTokenError
+    definition: 'Object declared by the contract with fields: apiInfo, description, message, subError.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/authTokenError
+  - term: authTokenResponse
+    definition: 'Object declared by the contract with fields: apiInfo, description, message, item.'
+    tags:
+    - Object
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/authTokenResponse
+  - term: Manifest
+    definition: 'Object declared by the contract with fields: propertyAddress, mlsId, vendorId, vendorName, dateFileCreated, listItems.'
+    tags:
+    - Object
+    source: openapi/bright-mls-manifest-services-openapi.json#/components/schemas/Manifest
+  - term: ManifestItem
+    definition: 'Object declared by the contract with fields: fileName, imageUrls, id, lastModified, mediaType, description, roomType, tourUrl,
+      docUrl, docVisibility.'
+    tags:
+    - Object
+    source: openapi/bright-mls-manifest-services-openapi.json#/components/schemas/ManifestItem
+  - term: ImageUrls
+    definition: 'Object declared by the contract with fields: fullSize.'
+    tags:
+    - Object
+    source: openapi/bright-mls-manifest-services-openapi.json#/components/schemas/ImageUrls
+  - term: UuidResponse
+    definition: 'Object declared by the contract with fields: uuid.'
+    tags:
+    - Object
+    source: openapi/bright-mls-manifest-services-openapi.json#/components/schemas/UuidResponse
+  - term: BadRequest
+    definition: Invalid request
+    tags:
+    - Object
+    source: openapi/bright-mls-manifest-services-openapi.json#/components/schemas/BadRequest
+  - term: Unauthorized
+    definition: Unauthorized
+    tags:
+    - Object
+    source: openapi/bright-mls-manifest-services-openapi.json#/components/schemas/Unauthorized
+  - term: InternalServerError
+    definition: Bright API Error
+    tags:
+    - Object
+    source: openapi/bright-mls-manifest-services-openapi.json#/components/schemas/InternalServerError
+  - term: Listing
+    definition: 'Resource group in the contract; its operation GET /datahub/listing/delta/{date}: By using this GET API endpoint an authorized
+      consumer can request to recieve the delta package for a specific date.The package may include all newly received listing type data that
+      were received on the same date [as provided in place of date parameter] after 4 AM GMT / UTC.'
+    tags:
+    - Resource Group
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json
+  - term: User
+    definition: 'Resource group in the contract; its operation POST /datahub/user: By using this POST API endpoint a user can be onboarded into
+      the datahub system'
+    tags:
+    - Resource Group
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json
+  - term: Auth
+    definition: 'Resource group in the contract; its operation POST /datahub/auth/token: By using this POST API endpoint a user can fetch the
+      access token for their account'
+    tags:
+    - Resource Group
+    source: openapi/bright-mls-datalake-distribution-service-openapi.json

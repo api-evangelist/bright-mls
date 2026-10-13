@@ -1,0 +1,35 @@
+generated: '2026-10-14'
+method: searched
+source: https://developer.brightmls.com/brightreso/default/overview; https://www.brightmls.com/benefits/developers; plus rows derived from openapi/
+  (3 documents)
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: the document declares 3.0.0
+- id: oauth2
+  conforms: false
+  evidence: 'securitySchemes: ApiKeyAuth (apiKey), Authorization (apiKey), api_key (apiKey)'
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
+- id: odata
+  conforms: true
+  evidence: https://developer.brightmls.com/brightreso/default/overview documents the RESO Web API as an OData service at https://bright-reso.brightmls.com/RESO/OData/bright
+    with a $metadata document (anonymous probe 2026-10-14 returned 401)
+- id: reso-data-dictionary-1.6
+  conforms: true
+  evidence: 'https://www.brightmls.com/benefits/developers: "Bright is one of the first and largest multiple listing services to achieve RESO’s
+    Data Dictionary 1.6 Platinum Certification."'
+- id: reso-web-api
+  conforms: true
+  evidence: 'https://www.brightmls.com/benefits/developers: "Bright fully supports RESO Web API transport for accessing our listing data and is
+    the preferred method to be used over the legacy RETS transport."'
+- id: oidc
+  conforms: true
+  evidence: 'https://developer.brightmls.com/brightreso/default/authentication: "BrightMLS utilizes OAuth 2.0 and OpenID Connect to control authorization
+    and authentication for the RESO Web API" (client_credentials grant)'
+note: 'Derived from the provider''s own OpenAPI only: what the contract declares. Claims the contract cannot carry (PCI DSS, SOC 2, FAPI, ISO
+  20022) come from the documentation reader and are merged below when found.'

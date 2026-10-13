@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/bright-mls/main/json-schema/bright-mls-user-api-body-schema.json",
+  "title": "userApiBody",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/userApiBody",
+  "type": "object",
+  "required": [
+    "email",
+    "onBoardingDate",
+    "industry",
+    "organizationName"
+  ],
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "onBoardingDate": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "automated valuation model",
+          "government-sponsored enterprise",
+          "financial institution",
+          "data intermediary"
+        ]
+      }
+    },
+    "organizationName": {
+      "type": "string"
+    }
+  }
+}

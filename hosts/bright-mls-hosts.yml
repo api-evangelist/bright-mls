@@ -1,0 +1,174 @@
+generated: '2026-10-14'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 13
+  own: 9
+  other_domain: 1
+  platform: 3
+  roles:
+  - api
+  - identity
+  - other
+  - portal
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: 4qpk2x8mkb.execute-api.us-east-1.amazonaws.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: amazonaws.com
+  role: other
+  relation: platform
+- host: api.brightmls.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: brightmls.com
+  role: api
+  relation: own
+- host: api.swaggerhub.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - docs
+  registrable_domain: swaggerhub.com
+  role: api
+  relation: other-domain
+- host: bright-manifestservices.prd.brightmls.com
+  found_by:
+  - apis[]
+  - vendor-detect
+  types: []
+  serves:
+  - api
+  - api-gateway
+  vendor: aws-api-gateway
+  registrable_domain: brightmls.com
+  role: other
+  relation: own
+- host: bright-reso.brightmls.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: brightmls.com
+  role: other
+  relation: own
+- host: dev.brightmls.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: brightmls.com
+  role: other
+  relation: own
+- host: developer.brightmls.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - namespace-probe
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - DeveloperPortal
+  serves:
+  - docs
+  - cdn
+  title: brightmls
+  status: 200
+  vendor: cloudflare
+  registrable_domain: brightmls.com
+  role: portal
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: login.brightmls.com
+  found_by:
+  - pointer
+  types:
+  - Login
+  serves: []
+  registrable_domain: brightmls.com
+  role: identity
+  relation: own
+- host: status.brightmls.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - StatusPage
+  serves:
+  - status-page
+  vendor: betterstack
+  registrable_domain: brightmls.com
+  role: status
+  relation: own
+- host: support.brightmls.com
+  found_by:
+  - pointer
+  types:
+  - Support
+  serves: []
+  registrable_domain: brightmls.com
+  role: support
+  relation: own
+- host: vhooagd6sk.execute-api.us-east-1.amazonaws.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: amazonaws.com
+  role: other
+  relation: platform
+- host: www.brightmls.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  - Documentation
+  - Pricing
+  - TermsOfService
+  - PrivacyPolicy
+  - Blog
+  serves:
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: brightmls.com
+  role: website
+  relation: own

@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/bright-mls/main/json-schema/bright-mls-manifest-schema.json",
+  "title": "Manifest",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/bright-mls-manifest-services-openapi.json#/components/schemas/Manifest",
+  "type": "object",
+  "properties": {
+    "propertyAddress": {
+      "type": "string"
+    },
+    "mlsId": {
+      "type": "string"
+    },
+    "vendorId": {
+      "type": "number"
+    },
+    "vendorName": {
+      "type": "string"
+    },
+    "dateFileCreated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "listItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ManifestItem"
+      }
+    }
+  },
+  "required": [
+    "vendorId",
+    "vendorName",
+    "dateFileCreated",
+    "listItems"
+  ],
+  "$defs": {
+    "ImageUrls": {
+      "type": "object",
+      "properties": {
+        "fullSize": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fullSize"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "ManifestItem": {
+      "type": "object",
+      "properties": {
+        "fileName": {
+          "type": "string",
+          "description": "The name of the image or tour. If mediaType=tour_url then Max Length is 25."
+        },
+        "imageUrls": {
+          "$ref": "#/$defs/ImageUrls"
+        },
+        "id": {
+          "type": "number",
+          "description": "3rd Party System identifier for the image."
+        },
+        "lastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Datetime the image was last modified."
+        },
+        "mediaType": {
+          "type": "string",
+          "enum": [
+            "photo",
+            "tour_url",
+            "document",
+            "floor_plan"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 50,
+          "description": "User provided caption for the image."
+        },
+        "roomType": {
+          "type": "string",
+          "description": "User specified room type of the image."
+        },
+        "tourUrl": {
+          "type": "string",
+          "description": "If mediaType=tour_url then required."
+        },
+        "docUrl": {
+          "type": "string",
+          "description": "If mediaType=document or floor_plan then required."
+        },
+        "docVisibility": {
+          "type": "string",
+          "enum": [
+            "private",
+            "public"
+          ],
+          "description": "If mediaType=document or floor_plan then required."
+        }
+      },
+      "required": [
+        "fileName",
+        "imageUrls",
+        "lastModified",
+        "mediaType",
+        "description",
+        "tourUrl",
+        "docUrl",
+        "docVisibility"
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/bright-mls/main/json-schema/bright-mls-get-package-response-schema.json",
+  "title": "GetPackageResponse",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/bright-mls-datalake-distribution-service-openapi.json#/components/schemas/GetPackageResponse",
+  "type": "object",
+  "required": [
+    "apiInfo",
+    "description",
+    "message",
+    "url"
+  ],
+  "properties": {
+    "apiInfo": {
+      "$ref": "#/$defs/ApiInfo"
+    },
+    "description": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "description": "Presigned url of the data package\n"
+    }
+  },
+  "$defs": {
+    "ApiInfo": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "number",
+          "description": "UTC timestamp in miliseconds when the response was generated from the server\n"
+        },
+        "provider": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
