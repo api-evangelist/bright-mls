@@ -1,0 +1,54 @@
+openapi: 3.2.0
+info:
+  title: Data Hub Ingestion Service Datahub API
+  description: Data Hub Ingestion Service API
+  version: '1.0'
+servers:
+- url: https://vhooagd6sk.execute-api.us-east-1.amazonaws.com/t1
+  description: SwaggerHub API
+tags:
+- name: Data Hub
+paths:
+  /datahub:
+    post:
+      description: API to ingest data into datalake.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestionApiBody'
+        required: true
+      responses:
+        '202':
+          description: 202 response
+      security:
+      - api_key: []
+      tags:
+      - Data Hub
+      summary: Create datahub
+      x-summary-source: derived
+      operationId: postDatahub
+      x-operation-id-source: derived
+components:
+  schemas:
+    IngestionApiBody:
+      required:
+      - Type
+      - MessageId
+      - Item
+      type: object
+      properties:
+        Type:
+          type: string
+          description: The possible values of type could be listing, member, office etc
+        messageId:
+          type: string
+          description: The unique identifier value
+        item:
+          type: object
+          description: The item will contain the JSON representation of the document, its properties will differ based on the document type choosed.
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header

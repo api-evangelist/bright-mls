@@ -1,0 +1,155 @@
+openapi: 3.2.0
+info:
+  version: '1.0'
+  title: DataLake Distribution Service User API
+  description: DataLake Distribution Service API
+servers:
+- description: SwaggerHub API
+  url: https://4qpk2x8mkb.execute-api.us-east-1.amazonaws.com/t1
+tags:
+- name: User
+paths:
+  /datahub/user:
+    post:
+      summary: Distribution Service Provision User into Datahub API
+      description: By using this POST API endpoint a user can be onboarded into the datahub system
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userApiBody'
+        required: true
+      security:
+      - Authorization: []
+      tags:
+      - User
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userApiResponse'
+        '400':
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userApiError'
+        '401':
+          description: 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userApiForbidden'
+        '500':
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      operationId: postDatahubUser
+      x-operation-id-source: derived
+components:
+  schemas:
+    ApiInfo:
+      type: object
+      properties:
+        version:
+          type: string
+          example: '1.0'
+        timestamp:
+          type: number
+          description: 'UTC timestamp in miliseconds when the response was generated from the server
+
+            '
+          example: 1659599754000
+        provider:
+          type: string
+          example: BrightMLS
+    Error:
+      type: object
+      properties:
+        apiInfo:
+          $ref: '#/components/schemas/ApiInfo'
+        message:
+          type: string
+          example: Error message
+      title: Error Response
+    userApiForbidden:
+      type: object
+      properties:
+        apiInfo:
+          $ref: '#/components/schemas/ApiInfo'
+        description:
+          type: string
+          example: You are not authorized to perform this action
+        message:
+          type: string
+          example: UnAuthorized
+    userApiBody:
+      type: object
+      required:
+      - email
+      - onBoardingDate
+      - industry
+      - organizationName
+      properties:
+        email:
+          type: string
+          example: test@mailinator.com
+        onBoardingDate:
+          type: string
+          example: '20221120'
+        industry:
+          type: array
+          items:
+            type: string
+            enum:
+            - automated valuation model
+            - government-sponsored enterprise
+            - financial institution
+            - data intermediary
+        organizationName:
+          type: string
+          example: testorganization
+    userApiResponse:
+      type: object
+      properties:
+        apiInfo:
+          $ref: '#/components/schemas/ApiInfo'
+        description:
+          type: string
+          example: User registered successfully
+        message:
+          type: string
+          example: Success
+        item:
+          type: object
+          properties:
+            clientId:
+              type: string
+            clientSecret:
+              type: string
+    userApiError:
+      type: object
+      properties:
+        apiInfo:
+          $ref: '#/components/schemas/ApiInfo'
+        description:
+          type: string
+          example: Invalid request body
+        message:
+          type: string
+          example: requestBodyInvalid
+        subError:
+          type: array
+          items:
+            type: string
+          example:
+          - Please provide the required properties
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header

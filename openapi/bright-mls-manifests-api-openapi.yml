@@ -1,0 +1,279 @@
+openapi: 3.2.0
+info:
+  version: 1.0.0
+  title: Manifest Services Manifests API
+  description: API for Media Vendors. Provides the ability to securely store a JSON manifest for later retrieval by Bright
+servers:
+- description: SwaggerHub API Auto Mocking
+  url: https://virtserver.swaggerhub.com/BrightMLS/Manifest.Services/1.0.0
+- description: D1 - Develop
+  url: https://bright-manifestservices.dev.brightmls.com
+- description: T1 - Test
+  url: https://bright-manifestservices.tst.brightmls.com
+- description: P1 - Production
+  url: https://bright-manifestservices.prd.brightmls.com
+security:
+- ApiKeyAuth: []
+tags:
+- name: Manifests
+  description: Operations available to Manifests
+paths:
+  /manifests/{uuid}:
+    get:
+      tags:
+      - Manifests
+      description: Returns a Manifest
+      parameters:
+      - in: header
+        name: X-API-User
+        schema:
+          type: string
+        required: true
+        description: VendorId of the user
+      - in: path
+        name: uuid
+        schema:
+          type: string
+        required: true
+        description: String UUID of the Manifest to get
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Manifest'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+      summary: Get manifests by uuid
+      x-summary-source: derived
+      operationId: getManifestsByUuid
+      x-operation-id-source: derived
+  /manifests:
+    post:
+      tags:
+      - Manifests
+      description: Returns a UUID
+      parameters:
+      - in: header
+        name: X-API-User
+        schema:
+          type: string
+        required: true
+        description: VendorId of the user
+      requestBody:
+        description: Manifest
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Manifest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UuidResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+      summary: Create manifests
+      x-summary-source: derived
+      operationId: postManifests
+      x-operation-id-source: derived
+components:
+  schemas:
+    ManifestItem:
+      type: object
+      properties:
+        fileName:
+          type: string
+          description: The name of the image or tour. If mediaType=tour_url then Max Length is 25.
+        imageUrls:
+          $ref: '#/components/schemas/ImageUrls'
+        id:
+          type: number
+          description: 3rd Party System identifier for the image.
+        lastModified:
+          type: string
+          format: date-time
+          description: Datetime the image was last modified.
+        mediaType:
+          type: string
+          enum:
+          - photo
+          - tour_url
+          - document
+          - floor_plan
+        description:
+          type: string
+          maxLength: 50
+          description: User provided caption for the image.
+        roomType:
+          type: string
+          description: User specified room type of the image.
+        tourUrl:
+          type: string
+          description: If mediaType=tour_url then required.
+        docUrl:
+          type: string
+          description: If mediaType=document or floor_plan then required.
+        docVisibility:
+          type: string
+          enum:
+          - private
+          - public
+          example: private
+          description: If mediaType=document or floor_plan then required.
+      required:
+      - fileName
+      - imageUrls
+      - lastModified
+      - mediaType
+      - description
+      - tourUrl
+      - docUrl
+      - docVisibility
+    ImageUrls:
+      type: object
+      properties:
+        fullSize:
+          type: string
+      required:
+      - fullSize
+      additionalProperties:
+        type: string
+    BadRequest:
+      description: Invalid request
+      type: object
+      properties:
+        apiInfo:
+          type: object
+          properties:
+            version:
+              type: string
+              example: 1.0.0
+            timestamp:
+              type: string
+              format: date-time
+        message:
+          type: string
+          example: Bad Request
+        description:
+          type: string
+          example: Schema validation failed
+        errors:
+          type: array
+          items:
+            type: string
+    Unauthorized:
+      description: Unauthorized
+      type: object
+      properties:
+        apiInfo:
+          type: object
+          properties:
+            version:
+              type: string
+              example: 1.0.0
+            timestamp:
+              type: string
+              format: date-time
+        message:
+          type: string
+          example: Unauthorized
+        description:
+          type: string
+          example: Unauthorized
+        errors:
+          type: array
+          items:
+            type: string
+    InternalServerError:
+      description: Bright API Error
+      type: object
+      properties:
+        apiInfo:
+          type: object
+          properties:
+            version:
+              type: string
+              example: 1.0.0
+            timestamp:
+              type: string
+              format: date-time
+        message:
+          type: string
+          example: Internal Server Error
+        description:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+    Manifest:
+      type: object
+      properties:
+        propertyAddress:
+          type: string
+        mlsId:
+          type: string
+        vendorId:
+          type: number
+        vendorName:
+          type: string
+        dateFileCreated:
+          type: string
+          format: date-time
+        listItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ManifestItem'
+      required:
+      - vendorId
+      - vendorName
+      - dateFileCreated
+      - listItems
+    UuidResponse:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key

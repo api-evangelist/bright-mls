@@ -1,3 +1,5 @@
+# x-archived-from: bright-mls-data-hub-ingestion-service-openapi.yml
+# x-archived-on: 2026-10-16
 openapi: 3.0.0
 info:
   title: Data Hub Ingestion Service API

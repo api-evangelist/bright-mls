@@ -91,8 +91,10 @@ common:
 apis:
 - aid: bright-mls:bright-mls-reso-web-api
   name: Bright MLS RESO Web API
-  description: OData-based RESO Web API giving licensed vendors access to Bright MLS listing data described by the RESO Data Dictionary; the $metadata
-    document and the service root require a bearer token (anonymous requests return 401). No public OpenAPI is published for it.
+  description: >-
+    OData-based RESO Web API giving licensed vendors access to Bright MLS listing data described by the
+    RESO Data Dictionary; the $metadata document and the service root require a bearer token (anonymous
+    requests return 401). No public OpenAPI is published for it.
   humanURL: https://developer.brightmls.com/brightreso/default/overview
   baseURL: https://bright-reso.brightmls.com/RESO/OData/bright
   tags:
@@ -110,9 +112,10 @@ apis:
     url: https://developer.brightmls.com/brightreso/default/faq
 - aid: bright-mls:bright-mls-showinghub-api
   name: Bright MLS ShowingHub API
-  description: ShowingHub is an MLS-provided service for interoperability between showing-scheduling systems, covering registrations and transfers,
-    appointments and event notifications through subscriptions; per-environment Swagger UI is served at the API host after login. No public contract
-    is published.
+  description: >-
+    ShowingHub is an MLS-provided service for interoperability between showing-scheduling systems, covering
+    registrations and transfers, appointments and event notifications through subscriptions; per-environment
+    Swagger UI is served at the API host after login. No public contract is published.
   humanURL: https://developer.brightmls.com/showinghub/default/introduction
   tags:
   - Showings
@@ -122,41 +125,20 @@ apis:
     url: https://developer.brightmls.com/showinghub/default/introduction
   - type: Authentication
     url: https://developer.brightmls.com/showinghub/default/authorization
-- aid: bright-mls:bright-mls-manifest-services
-  name: Bright MLS Manifest Services
-  description: API for media vendors that securely stores a JSON manifest for later retrieval by Bright MLS (create a manifest and fetch it by
-    UUID), authenticated with an API key.
-  humanURL: https://api.swaggerhub.com/apis/BrightMLS/Manifest.Services/1.0.0
-  baseURL: https://bright-manifestservices.prd.brightmls.com
+- aid: bright-mls:bright-mls-auth-api
+  name: Bright MLS Auth API
+  description: The Auth API from Bright MLS — 1 operation(s) for auth.
+  humanURL: https://developer.brightmls.com/brightreso/default/overview
+  baseURL: https://bright-reso.brightmls.com/RESO/OData/bright
   tags:
-  - Media
-  - Manifests
+  - Auth
   properties:
   - type: OpenAPI
-    url: openapi/bright-mls-manifest-services-openapi.json
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://api.swaggerhub.com/apis/BrightMLS/Manifest.Services/1.0.0
+    url: openapi/bright-mls-auth-api-openapi.yml
   - type: JSONSchema
     url: json-schema/bright-mls-manifest-schema.json
   - type: JSONSchema
     url: json-schema/bright-mls-uuid-response-schema.json
-- aid: bright-mls:bright-mls-datalake-distribution-service
-  name: Bright MLS DataLake Distribution Service API
-  description: Data Hub distribution service for retrieving listing delta and historical extracts by date, plus user registration and token issuance.
-    Published in Bright MLS's own SwaggerHub registry (owner BrightMLS); its servers[] entry is an AWS API Gateway test-stage host rather than
-    a brightmls.com host.
-  humanURL: https://api.swaggerhub.com/apis/BrightMLS/DistributionServiceAPI/1.0
-  baseURL: https://4qpk2x8mkb.execute-api.us-east-1.amazonaws.com/t1
-  tags:
-  - Data Hub
-  - Listings
-  properties:
-  - type: OpenAPI
-    url: openapi/bright-mls-datalake-distribution-service-openapi.json
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://api.swaggerhub.com/apis/BrightMLS/DistributionServiceAPI/1.0
   - type: JSONSchema
     url: json-schema/bright-mls-user-api-body-schema.json
   - type: JSONSchema
@@ -167,24 +149,112 @@ apis:
     url: json-schema/bright-mls-get-package-response-schema.json
   - type: JSONSchema
     url: json-schema/bright-mls-auth-token-body-schema.json
-- aid: bright-mls:bright-mls-data-hub-ingestion-service
-  name: Bright MLS Data Hub Ingestion Service API
-  description: Data Hub ingestion endpoint for submitting data to Bright MLS, authenticated with an API key. Published in Bright MLS's own SwaggerHub
-    registry (owner BrightMLS); its servers[] entry is an AWS API Gateway test-stage host.
-  humanURL: https://api.swaggerhub.com/apis/BrightMLS/IngestionServiceAPI/1.0
-  baseURL: https://vhooagd6sk.execute-api.us-east-1.amazonaws.com/t1
-  tags:
-  - Data Hub
-  - Ingestion
-  properties:
-  - type: OpenAPI
-    url: openapi/bright-mls-data-hub-ingestion-service-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://api.swaggerhub.com/apis/BrightMLS/IngestionServiceAPI/1.0
   - type: JSONSchema
     url: json-schema/bright-mls-ingestion-api-body-schema.json
-
+- aid: bright-mls:bright-mls-listing-api
+  name: Bright MLS Listing API
+  description: The Listing API from Bright MLS — 2 operation(s) for listing.
+  humanURL: https://developer.brightmls.com/brightreso/default/overview
+  baseURL: https://bright-reso.brightmls.com/RESO/OData/bright
+  tags:
+  - Listing
+  properties:
+  - type: OpenAPI
+    url: openapi/bright-mls-listing-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/bright-mls-manifest-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-uuid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-user-api-body-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-user-api-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-auth-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-get-package-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-auth-token-body-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-ingestion-api-body-schema.json
+- aid: bright-mls:bright-mls-manifests-api
+  name: Bright MLS Manifests API
+  description: Operations available to Manifests
+  humanURL: https://developer.brightmls.com/brightreso/default/overview
+  baseURL: https://bright-reso.brightmls.com/RESO/OData/bright
+  tags:
+  - Manifests
+  properties:
+  - type: OpenAPI
+    url: openapi/bright-mls-manifests-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/bright-mls-manifest-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-uuid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-user-api-body-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-user-api-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-auth-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-get-package-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-auth-token-body-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-ingestion-api-body-schema.json
+- aid: bright-mls:bright-mls-user-api
+  name: Bright MLS User API
+  description: The User API from Bright MLS — 1 operation(s) for user.
+  humanURL: https://developer.brightmls.com/brightreso/default/overview
+  baseURL: https://bright-reso.brightmls.com/RESO/OData/bright
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/bright-mls-user-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/bright-mls-manifest-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-uuid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-user-api-body-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-user-api-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-auth-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-get-package-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-auth-token-body-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-ingestion-api-body-schema.json
+- aid: bright-mls:bright-mls-data-hub-api
+  name: Bright MLS Data Hub API
+  description: The Data Hub API from Bright MLS — 1 operation(s) for data hub.
+  humanURL: https://developer.brightmls.com/brightreso/default/overview
+  baseURL: https://bright-reso.brightmls.com/RESO/OData/bright
+  tags:
+  - Data Hub
+  properties:
+  - type: OpenAPI
+    url: openapi/bright-mls-data-hub-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/bright-mls-manifest-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-uuid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-user-api-body-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-user-api-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-auth-token-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-get-package-response-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-auth-token-body-schema.json
+  - type: JSONSchema
+    url: json-schema/bright-mls-ingestion-api-body-schema.json
 x-coverage:
   state: none
   reason: no-developer-program

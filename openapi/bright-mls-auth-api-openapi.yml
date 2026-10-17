@@ -1,0 +1,120 @@
+openapi: 3.2.0
+info:
+  version: '1.0'
+  title: DataLake Distribution Service Auth API
+  description: DataLake Distribution Service API
+servers:
+- description: SwaggerHub API
+  url: https://4qpk2x8mkb.execute-api.us-east-1.amazonaws.com/t1
+tags:
+- name: Auth
+paths:
+  /datahub/auth/token:
+    post:
+      summary: Distribution Service Fetch User Access Token API
+      description: By using this POST API endpoint a user can fetch the access token for their account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authTokenBody'
+        required: true
+      tags:
+      - Auth
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authTokenResponse'
+        '400':
+          description: 400 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authTokenError'
+        '500':
+          description: 500 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      operationId: postDatahubAuthToken
+      x-operation-id-source: derived
+components:
+  schemas:
+    authTokenError:
+      type: object
+      properties:
+        apiInfo:
+          $ref: '#/components/schemas/ApiInfo'
+        description:
+          type: string
+          example: Invalid request body
+        message:
+          type: string
+          example: requestBodyInvalid
+        subError:
+          type: array
+          items:
+            type: string
+          example:
+          - Please provide the required properties
+    authTokenResponse:
+      type: object
+      properties:
+        apiInfo:
+          $ref: '#/components/schemas/ApiInfo'
+        description:
+          type: string
+          example: Token fetched successfully
+        message:
+          type: string
+          example: Success
+        item:
+          type: object
+          properties:
+            accessToken:
+              type: string
+            ttl:
+              type: number
+    ApiInfo:
+      type: object
+      properties:
+        version:
+          type: string
+          example: '1.0'
+        timestamp:
+          type: number
+          description: 'UTC timestamp in miliseconds when the response was generated from the server
+
+            '
+          example: 1659599754000
+        provider:
+          type: string
+          example: BrightMLS
+    Error:
+      type: object
+      properties:
+        apiInfo:
+          $ref: '#/components/schemas/ApiInfo'
+        message:
+          type: string
+          example: Error message
+      title: Error Response
+    authTokenBody:
+      type: object
+      required:
+      - clientId
+      - clientSecret
+      properties:
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+  securitySchemes:
+    Authorization:
+      type: apiKey
+      name: Authorization
+      in: header
