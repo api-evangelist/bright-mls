@@ -64,5 +64,137 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Bright MLS is a company surfaced via the API Evangelist harvest backlog (source: market-gap:real-estate) and added to the network as a stub for full-pipeline profiling.
-- https://www.brightmls.com
+Bright MLS is one of the largest multiple listing services in the United States, serving real estate professionals across the Mid-Atlantic. Its developer portal (developer.brightmls.com, a SwaggerHub Portal) documents the RESO Web API (OData, RESO Data Dictionary 1.6 Platinum certified) for licensed listing data and the ShowingHub showing-scheduling interoperability API, and its public SwaggerHub registry publishes OpenAPI contracts for the Data Hub ingestion and DataLake distribution services and the Manifest Services API for media vendors.
+
+**Areas:** Company · Real Estate · MLS · RESO · OData · Listings · Property Data
+
+## Bright MLS on APIs.io
+
+Everything profiled for Bright MLS is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bright-mls/](https://apis.io/providers/bright-mls/)** — or go straight to one of the APIs or properties below.
+
+### APIs (7)
+
+- [Bright MLS RESO Web API](https://apis.io/apis/bright-mls/bright-mls-reso-web-api/) — OData-based RESO Web API giving licensed vendors access to Bright MLS listing data described by the RESO Data Dictionary; the $metadata document and the…
+- [Bright MLS ShowingHub API](https://apis.io/apis/bright-mls/bright-mls-showinghub-api/) — ShowingHub is an MLS-provided service for interoperability between showing-scheduling systems, covering registrations and transfers, appointments and event…
+- [Bright MLS Auth API](https://apis.io/apis/bright-mls/bright-mls-auth-api/) — The Auth API from Bright MLS — 1 operation(s) for auth.
+- [Bright MLS Listing API](https://apis.io/apis/bright-mls/bright-mls-listing-api/) — The Listing API from Bright MLS — 2 operation(s) for listing.
+- [Bright MLS Manifests API](https://apis.io/apis/bright-mls/bright-mls-manifests-api/) — Operations available to Manifests
+- [Bright MLS User API](https://apis.io/apis/bright-mls/bright-mls-user-api/) — The User API from Bright MLS — 1 operation(s) for user.
+- [Bright MLS Data Hub API](https://apis.io/apis/bright-mls/bright-mls-data-hub-api/) — The Data Hub API from Bright MLS — 1 operation(s) for data hub.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [bright-mls-mcp.yml](https://apis.io/servers/bright-mls/bright-mls-mcp-yml/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Bright Mls Agentic Access](https://apis.io/agentic-access/bright-mls/bright-mls-agentic-access/)
+
+#### JSON Schema (8)
+
+The data models the API reads and writes.
+
+- [authTokenBody](https://apis.io/schemas/bright-mls/bright-mls-auth-token-body/)
+- [authTokenResponse](https://apis.io/schemas/bright-mls/bright-mls-auth-token-response/)
+- [GetPackageResponse](https://apis.io/schemas/bright-mls/bright-mls-get-package-response/)
+- [IngestionApiBody](https://apis.io/schemas/bright-mls/bright-mls-ingestion-api-body/)
+- [Manifest](https://apis.io/schemas/bright-mls/bright-mls-manifest/)
+- [userApiBody](https://apis.io/schemas/bright-mls/bright-mls-user-api-body/)
+- [userApiResponse](https://apis.io/schemas/bright-mls/bright-mls-user-api-response/)
+- [UuidResponse](https://apis.io/schemas/bright-mls/bright-mls-uuid-response/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Bright Mls Context](https://apis.io/jsonld/bright-mls/bright-mls-context/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Bright MLS API Rules](https://apis.io/rules/bright-mls/bright-mls-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bright Mls Authentication](https://apis.io/security/bright-mls/bright-mls-authentication/)
+- [Bright Mls Domain Security](https://apis.io/security/bright-mls/bright-mls-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.brightmls.com)
+- [Documentation](https://www.brightmls.com/benefits/developers)
+- [Pricing](https://www.brightmls.com/pricing)
+- [Support](https://support.brightmls.com/s/)
+- [Blog](https://www.brightmls.com/newsroom)
+- [Terms of service](https://www.brightmls.com/terms)
+- [Privacy policy](https://www.brightmls.com/privacy)
+- [GitHub](https://github.com/BrightMLS)
+- [Status](https://status.brightmls.com/)
+
+## API Evangelist rating
+
+**Kin Score 46.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 61.7 |
+| Contract governance | 35.6 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 38.1 |
+| Access clarity | 44.7 |
+
+**Agent readiness 27.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bright-mls/](https://apis.io/providers/bright-mls/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bright MLS: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bright-mls/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
